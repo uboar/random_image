@@ -54,9 +54,10 @@ app.all('*', async (c) => {
 
   // 流石に毎回変わると遅すぎるので、
   // 5分に1回キャッシュの有効期限が切れて画像が変わる仕組みにした
+  const cacheControl = force ? 'no-cache' : 'public, max-age=300';
   const res = new Response(obj.body, {
     headers: {
-      'Cache-Control': 'public, max-age=300',
+      'Cache-Control': cacheControl,
       'Content-Type': extConvert.get(ext) ?? 'application/octet-stream',
     },
   });
