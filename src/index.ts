@@ -35,7 +35,7 @@ app.all('*', async (c) => {
     return cachedRes;
   }
 
-  const listResult = await c.env.IMAGE_BUCKET.list();
+  const listResult = await c.env.IMAGE_BUCKET.list({ prefix: conds.join('/') });
   const objects = listResult.objects as R2Object[];
 
   if (objects.length === 0) {
