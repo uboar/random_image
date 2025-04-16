@@ -13,7 +13,7 @@ const extConvert = new Map<string, string>([
 app.use(
   '*',
   cors({
-    origin: ['https://voskey.icalo.net'],
+    origin: ['https://voskey.icalo.net', 'https://voskeydocs.icalo.net'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
   }),
 );
